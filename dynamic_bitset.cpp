@@ -117,7 +117,7 @@ dynamic_bitset &dynamic_bitset::set()
 dynamic_bitset dynamic_bitset::operator^(const dynamic_bitset &other) const
 {
     size_type len = std::min(other.size(), _size);
-    dynamic_bitset res(_size);
+    dynamic_bitset res(len);
     for (size_type i = 0; i <= (len - 1) / unit_size; i++)
         res._v[i] = this->unit_at(i) ^ other.unit_at(i);
     return res;
