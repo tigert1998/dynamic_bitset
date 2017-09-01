@@ -7,7 +7,6 @@
 
 #include <bitset>
 #include <vector>
-
 class dynamic_bitset
 {
     static const size_t unit_size = 64;
@@ -18,13 +17,13 @@ class dynamic_bitset
     typedef const unit &const_unit_reference;
     typedef unit::reference reference;
 
-private:
+  private:
     size_type _size;
     std::vector<unit> _v;
 
     inline void _push(size_type, const_unit_reference, size_type, difference_type);
 
-public:
+  public:
     dynamic_bitset();
 
     explicit dynamic_bitset(size_type);
@@ -41,13 +40,13 @@ public:
 
     void resize(size_type);
 
-    void reset();
+    dynamic_bitset &reset();
 
-    void set();
+    dynamic_bitset &set();
 
     dynamic_bitset operator^(const dynamic_bitset &) const;
 
-    void operator^=(const dynamic_bitset &);
+    dynamic_bitset &operator^=(const dynamic_bitset &);
 
     bool test(size_type) const;
 };
